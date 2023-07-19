@@ -22,6 +22,13 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  AbstractControl,
+  FormControl,
+  ValidationErrors,
+  ValidatorFn,
+} from '@angular/forms';
 import {
   Actions,
   computeLabel,
@@ -31,18 +38,11 @@ import {
   OwnPropsOfControl,
   StatePropsOfControl,
 } from '@jsonforms/core';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import {
-  AbstractControl,
-  FormControl,
-  ValidationErrors,
-  ValidatorFn,
-} from '@angular/forms';
 import type { Subscription } from 'rxjs';
 
+import merge from 'lodash/merge';
 import { JsonFormsBaseRenderer } from './base.renderer';
 import { JsonFormsAngularService } from './jsonforms.service';
-import merge from 'lodash/merge';
 @Component({
   template: '',
 })
@@ -65,6 +65,7 @@ export abstract class JsonFormsAbstractControl<
   scopedSchema: JsonSchema;
   rootSchema: JsonSchema;
   enabled: boolean;
+  focused: boolean;
   hidden: boolean;
   propsPath: string;
 

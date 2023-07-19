@@ -22,8 +22,6 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
-import some from 'lodash/some';
-import get from 'lodash/get';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -38,19 +36,21 @@ import {
   ArrayControlProps,
   ArrayTranslations,
   ControlElement,
+  JsonFormsState,
+  RankedTester,
+  StatePropsOfArrayControl,
   createDefaultValue,
   decode,
   findUISchema,
   getFirstPrimitiveProp,
-  JsonFormsState,
   mapDispatchToArrayControlProps,
   mapStateToArrayControlProps,
-  RankedTester,
   rankWith,
   setReadonly,
-  StatePropsOfArrayControl,
   uiTypeIs,
 } from '@jsonforms/core';
+import get from 'lodash/get';
+import some from 'lodash/some';
 
 const keywords = ['#', 'properties', 'items'];
 
@@ -156,7 +156,6 @@ export class MasterListComponent
   selectedItemIdx: number;
   addItem: (path: string, value: any) => () => void;
   removeItems: (path: string, toDelete: number[]) => () => void;
-  propsPath: string;
   highlightedIdx: number;
   translations: ArrayTranslations;
 

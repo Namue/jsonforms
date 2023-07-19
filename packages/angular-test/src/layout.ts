@@ -22,13 +22,13 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 */
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import {
   JsonFormsAngularService,
   JsonFormsOutlet,
   UnknownRenderer,
 } from '@jsonforms/angular';
-import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 export const beforeEachLayoutTest = <LAYOUT>(
   Renderer: any,
@@ -41,7 +41,7 @@ export const beforeEachLayoutTest = <LAYOUT>(
   })
     .overrideModule(BrowserDynamicTestingModule, {
       set: {
-        entryComponents: [UnknownRenderer],
+        bootstrap: [UnknownRenderer],
       },
     })
     .compileComponents();

@@ -1,12 +1,17 @@
 {
   "extends": "../../tsconfig.base",
+  "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./lib/esm",
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    "target": "es5"
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": ["ES2022", "dom"]
   },
-  "exclude": ["node_modules"],
-  "files": ["./src/index.ts"],
   "angularCompilerOptions": {
     "strictMetadataEmit": true,
     "generateCodeForLibraries": false,
